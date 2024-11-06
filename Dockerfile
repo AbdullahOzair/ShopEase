@@ -10,7 +10,9 @@ WORKDIR /app
 COPY . .
 RUN npm install
 
-# Decide which stage to run based on your needs
-# Use 'python-stage' to run the Python app or 'node-stage' to run the Node.js app.
-
+# Stage 3: Java setup (for OrderService)
+FROM openjdk:11 as java-stage
+WORKDIR /app
+COPY target/OrderService-0.0.1-SNAPSHOT.jar OrderService.jar
+ENTRYPOINT ["java", "-jar", "OrderService.jar"]
 
