@@ -3,7 +3,7 @@ services:
   user-service:
     build: ./user_service
     ports:
-      - "5000:5000"
+      - "5011:5011"
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
@@ -22,7 +22,7 @@ services:
   product-service:
     build: ./product_service
     ports:
-      - "3000:3000"
+      - "3011:3011"
     depends_on:
       - product-db
 
@@ -34,7 +34,7 @@ services:
   order-service:
     build: ./order_service
     ports:
-      - "8080:8080"
+      - "8011:8011"
     depends_on:
       - order-db
 
